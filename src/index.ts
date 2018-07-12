@@ -18,7 +18,7 @@ function normalizePort(val: number | string): number | string | boolean {
   if (isNaN(portnr)) {
     return val
   } else if (portnr >= 0) {
-    return port
+    return portnr
   } else {
     return false
   }
