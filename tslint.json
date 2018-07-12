@@ -9,6 +9,11 @@
     "adjacent-overload-signatures": true,
     "no-duplicate-variable": true,
     "triple-equals": true,
-    "prefer-template": true
+    "prefer-template": true,
+    "no-console": [
+      false,
+      "log",
+      "error"
+    ]
   }
 }
