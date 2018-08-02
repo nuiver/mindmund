@@ -13,14 +13,14 @@ gulp.task('scripts', () => {
     .pipe(tsProject());
   return tsResult.js
   .pipe(gulp.dest('dist'))
-  .pipe(rename({
-    suffix: "-min"
-  }))
-  .pipe(babel({
-    presets: ['es2015']
-  }))
-  .pipe(uglify())
-  .pipe(gulp.dest('dist/minified'))
+  // .pipe(rename({
+  //   suffix: "-min"
+  // }))
+  // .pipe(babel({
+  //   presets: ['es2015']
+  // }))
+  // .pipe(uglify())
+  // .pipe(gulp.dest('dist/minified'))
   ;
 });
 
