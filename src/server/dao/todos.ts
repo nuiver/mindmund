@@ -4,11 +4,13 @@ import { TodoInstance } from '../models/todo'
 
 export function create(todo: TodoInstance): Promise<any> {
   return db.Todo.create({
-    id: uuid.v1(),
     title: todo.title
   })
 }
 
+
 export function findAll(): Promise<any> {
-  return db.Todo.findAll()
+  return db.Todo.findAll(
+    { include: [{ model: db.TodoItem, as: 'todoItems' }] }
+  )
 }

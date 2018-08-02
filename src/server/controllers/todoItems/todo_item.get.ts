@@ -1,10 +1,10 @@
 import { Request, Response } from 'express'
-import { TodosDao } from '../../dao/_index'
+import { TodoItemsDao } from '../../dao/_index'
 
 
 export function list(req: Request, res: Response) {
-  return TodosDao
+  return TodoItemsDao
     .findAll()
-    .then(todos => res.status(200).send(todos))
+    .then(todoitems => res.status(200).send(todoitems))
     .catch(error => res.status(400).send(error))
 }

@@ -9,10 +9,12 @@ const config = require('../../../databaseconfig/config.json')[env]
 
 // Import model specification from its own definition file.
 import { TodoAttributes, TodoInstance } from './todo'
+import { TodoItemAttributes, TodoItemInstance } from './todo_item'
 // import { AppUserInstance, AppUserAttributes } from './appuser'
 
 interface DbConnection {
   Todo: Sequelize.Model<TodoInstance, TodoAttributes>,
+  TodoItem: Sequelize.Model<TodoItemInstance, TodoItemAttributes>,
   // AppUser: Sequelize.Model<AppUserInstance, AppUserAttributes>
 }
 
