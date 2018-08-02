@@ -1,7 +1,7 @@
 import * as bodyParser from 'body-parser'
 import * as express from 'express'
 // import * as logger from 'morgan'
-import * as routes from './srv/routes/_index'
+import * as routes from './server/routes/_index'
 
 // Creates and configures an ExpressJS web server.
 class App {
