@@ -11,6 +11,7 @@
     "object-literal-sort-keys": false,
     "triple-equals": true,
     "prefer-template": true,
+    "no-var-requires": false,
     "interface-name": [
       true,
       "never-prefix"
