@@ -1,6 +1,7 @@
 dist/*
 
 server/config/config.json
+databaseconfig/config.json
 
 node_modules
 

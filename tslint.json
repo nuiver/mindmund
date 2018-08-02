@@ -8,8 +8,14 @@
     "no-unnecessary-type-assertion": true,
     "adjacent-overload-signatures": true,
     "no-duplicate-variable": true,
+    "object-literal-sort-keys": false,
     "triple-equals": true,
     "prefer-template": true,
+    "no-var-requires": false,
+    "interface-name": [
+      true,
+      "never-prefix"
+    ],
     "no-console": [
       false,
       "log",

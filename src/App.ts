@@ -1,7 +1,7 @@
 import * as bodyParser from 'body-parser'
 import * as express from 'express'
-import * as logger from 'morgan'
-import * as path from 'path'
+// import * as logger from 'morgan'
+import * as routes from './srv/routes/_index'
 
 // Creates and configures an ExpressJS web server.
 class App {
@@ -17,15 +17,14 @@ class App {
 
   // Configure Express middleware.
   private middleware(): void {
-    this.app.use(logger('dev'))
+    // this.app.use(logger('dev'))
     this.app.use(bodyParser.json())
     this.app.use(bodyParser.urlencoded({ extended: false }))
   }
 
   // Configure API endpoints.
   private routes(): void {
-    require('../server/routes')(this.app)
-    this.app.get('*', (req, res) => res.status(200).send({ message: 'Welcome to the beginning of nothingness.' }))
+    routes.initRoutes(this.app)
   }
 }
 
