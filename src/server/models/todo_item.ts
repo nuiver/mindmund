@@ -19,8 +19,12 @@ export interface TodoItemInstance extends Sequelize.Instance<TodoItemAttributes>
 export default (sequelize: Sequelize.Sequelize, DataTypes) => {
   const TodoItem = sequelize.define('TodoItem', {
     content: DataTypes.STRING(255),
-    todoId: DataTypes.INTEGER,
-   }
-  )
+    todoId: DataTypes.INTEGER
+  })
+
+  TodoItem.associate = models => {
+    TodoItem.belongsTo(models.Todo, { as: 'TodoItem', foreignKey: 'todoId', onDelete: 'CASCADE' })
+  }
+
   return TodoItem
 }

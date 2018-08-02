@@ -13,16 +13,12 @@ export interface TodoInstance extends Sequelize.Instance<TodoAttributes> {
 }
 
 export default (sequelize: Sequelize.Sequelize, DataTypes) => {
-  const Todo = sequelize.define('Todo', { title: DataTypes.STRING(255) }
-    , {
-        classMethods: {
-          associate: models => {
-            Todo.hasMany(models.TodoItem, {
-              foreignKey: 'todoId',
-              as: 'todoItems'
-            })
-          }
-        }
-      })
+  const Todo = sequelize.define('Todo', { title: DataTypes.STRING(255) })
+  Todo.associate =  models => {
+    Todo.hasMany(models.TodoItem, {
+      foreignKey: 'todoId',
+      as: 'todoItems'
+    })
+  }
   return Todo
 }

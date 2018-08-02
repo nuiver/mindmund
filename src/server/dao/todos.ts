@@ -8,6 +8,9 @@ export function create(todo: TodoInstance): Promise<any> {
   })
 }
 
+
 export function findAll(): Promise<any> {
-  return db.Todo.findAll()
+  return db.Todo.findAll(
+    { include: [{ model: db.TodoItem, as: 'todoItems' }] }
+  )
 }
