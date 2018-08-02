@@ -1,12 +1,12 @@
 import * as Sequelize from 'sequelize'
 
 export interface TodoAttributes {
-  id?: string
+  id?: number
   title?: string
 }
 
 export interface TodoInstance extends Sequelize.Instance<TodoAttributes> {
-  id: string
+  id: number
   createdAt: Date
   updatedAt: Date
   title: string

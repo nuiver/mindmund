@@ -4,7 +4,6 @@ import { TodoInstance } from '../models/todo'
 
 export function create(todo: TodoInstance): Promise<any> {
   return db.Todo.create({
-    id: uuid.v1(),
     title: todo.title
   })
 }
