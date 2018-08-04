@@ -17,9 +17,5 @@ export default (sequelize: Sequelize.Sequelize, DataTypes) => {
     areaName: DataTypes.STRING(255),
   })
 
-  // Area.associate = models => {
-  //   Area.belongsTo(models.Todo, { as: 'Area', foreignKey: 'todoId', onDelete: 'CASCADE' })
-  // }
-
   return Area
 }

@@ -1,8 +1,8 @@
 import { Request, Response } from 'express'
-import { TodoItemsDao } from '../../dao/_index'
+import { AreasDao } from '../../dao/_index'
 
 export function create(req: Request, res: Response) {
-  return TodoItemsDao.create(req.body, req.params)
+  return AreasDao.create(req.body)
     .then(todoitems => res.status(201).send(todoitems))
     .catch(error => res.status(400).send(error))
 }
