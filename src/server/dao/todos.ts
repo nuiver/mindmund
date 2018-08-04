@@ -15,3 +15,12 @@ export function findAll(): Promise<any> {
     { include: [{ model: db.TodoItem, as: 'todoItems' }] }
   )
 }
+
+export function findById(params): Promise<any> {
+  return db.Todo.findById(params, {
+    include: [{
+      model: db.TodoItem,
+      as: 'todoItems',
+    }]
+  })
+  }
