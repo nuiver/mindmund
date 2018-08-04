@@ -1,4 +1,5 @@
 import { Application, Request, Response } from 'express'
+import * as AreaRoutes from './areas'
 import * as TodoItemRoutes from './todo_items'
 import * as TodoRoutes from './todos'
 
@@ -9,6 +10,7 @@ export function initRoutes(app: Application) {
     })
   )
 
+  AreaRoutes.routes(app)
   TodoItemRoutes.routes(app)
   TodoRoutes.routes(app)
 
