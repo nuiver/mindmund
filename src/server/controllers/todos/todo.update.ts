@@ -8,7 +8,7 @@ export function update(req: Request, res: Response) {
         return res.status(404).send({ message: 'Todo Not Found' })
       }
       return todo
-        .update({ title: req.body.title || todo.title })
+        .update(req.body, { fields: Object.keys(req.body) })
         .then(() => res.status(200).send(todo)) // Send back the updated todo.
         .catch(error => res.status(400).send(error))
     })
