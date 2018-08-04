@@ -12,3 +12,9 @@ export function create(todoItem: TodoItemInstance, requestParams): Promise<any> 
 export function findAll(): Promise<any> {
   return db.TodoItem.findAll()
 }
+
+
+export function find(params): Promise<any> {
+  return db.TodoItem.find(params)
+}
+
