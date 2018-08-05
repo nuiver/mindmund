@@ -4,9 +4,13 @@
     "tslint-config-prettier"
   ],
   "rules": {
+    "adjacent-overload-signatures": true,
+    "no-implicit-dependencies": [
+      true,
+      "dev"
+    ],
     "no-empty-interface": true,
     "no-unnecessary-type-assertion": true,
-    "adjacent-overload-signatures": true,
     "no-duplicate-variable": true,
     "object-literal-sort-keys": false,
     "triple-equals": true,
