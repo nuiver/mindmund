@@ -14,7 +14,7 @@ export interface AreaInstance extends Sequelize.Instance<AreaAttributes> {
 
 export default (sequelize: Sequelize.Sequelize, DataTypes) => {
   const Area = sequelize.define('Area', {
-    areaName: DataTypes.STRING(255),
+    areaName: DataTypes.STRING(255)
   })
 
   return Area

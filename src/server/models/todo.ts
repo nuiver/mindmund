@@ -17,9 +17,9 @@ export interface TodoInstance extends Sequelize.Instance<TodoAttributes> {
 export default (sequelize: Sequelize.Sequelize, DataTypes) => {
   const Todo = sequelize.define('Todo', {
     title: DataTypes.STRING(255),
-    note: DataTypes.TEXT(255),
-   })
-  Todo.associate =  models => {
+    note: DataTypes.TEXT(255)
+  })
+  Todo.associate = models => {
     Todo.hasMany(models.TodoItem, {
       foreignKey: 'todoId',
       as: 'todoItems'

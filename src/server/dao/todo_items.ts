@@ -5,7 +5,7 @@ import { TodoItemInstance } from '../models/todo_item'
 export function create(todoItem: TodoItemInstance, requestParams): Promise<any> {
   return db.TodoItem.create({
     content: todoItem.content,
-    todoId: requestParams.todoId,
+    todoId: requestParams.todoId
   })
 }
 
@@ -13,8 +13,6 @@ export function findAll(): Promise<any> {
   return db.TodoItem.findAll()
 }
 
-
 export function find(params): Promise<any> {
   return db.TodoItem.find(params)
 }
-
