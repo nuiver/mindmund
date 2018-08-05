@@ -8,3 +8,11 @@ export function create(area: AreaInstance): Promise<any> {
 export function findAll(): Promise<any> {
   return db.Area.findAll()
 }
+
+export function findById(params): Promise<any> {
+  return db.Area.findById(params)
+}
+
+export function find(params): Promise<any> {
+  return db.Area.find(params)
+}
