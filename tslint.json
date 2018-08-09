@@ -1,14 +1,15 @@
 {
-  "extends": [
-    "tslint:latest",
-    "tslint-config-prettier"
-  ],
+  "extends": ["tslint:latest", "tslint-eslint-rules", "tslint-config-prettier"],
+  "env": {
+    "es6": true
+  },
   "rules": {
     "adjacent-overload-signatures": true,
-    "no-implicit-dependencies": [
-      true,
-      "dev"
+    "arrow-parens": [
+      "error",
+      "always"
     ],
+    "no-implicit-dependencies": [true, "dev"],
     "no-empty-interface": true,
     "no-unnecessary-type-assertion": true,
     "no-duplicate-variable": true,
@@ -16,14 +17,7 @@
     "triple-equals": true,
     "prefer-template": true,
     "no-var-requires": false,
-    "interface-name": [
-      true,
-      "never-prefix"
-    ],
-    "no-console": [
-      false,
-      "log",
-      "error"
-    ]
+    "interface-name": [true, "never-prefix"],
+    "no-console": [false, "log", "error"]
   }
 }

@@ -1,0 +1,16 @@
+{
+  "version": "0.1.0",
+  "isShellCommand": false,
+  "showOutput": "always",
+  "tasks": [
+    {
+      "taskName": "run dev",
+      "isBackground": true,
+      "showOutput": "always",
+      "promptOnClose": true,
+      "command": "yarn",
+      "args": [
+        "dev"
+      ]
+    }]
+  }
