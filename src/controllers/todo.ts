@@ -2,14 +2,14 @@ import { NextFunction, Request, Response } from 'express'
 import { TodoAttributes } from '../models/todo'
 
 export function getAll(req: Request, res: Response, next: NextFunction): void {
-  const { Todo } = req.app.get('models');
+  const { Todo } = req.app.get('models')
   Todo.all()
     .then((data: TodoAttributes[]) => {
-      res.status(200).json(data);
+      res.status(200).json(data)
     })
     .catch((error: Error) => {
-      next(error);
-    });
+      next(error)
+    })
 }
 
 export function create(req: Request, res: Response, next: NextFunction): void {
@@ -19,6 +19,17 @@ export function create(req: Request, res: Response, next: NextFunction): void {
     .save()
     .then((data: TodoAttributes) => {
       res.status(200).json(data)
+    })
+    .catch((error: Error) => {
+      next(error)
+    })
+}
+
+export function getId(req: Request, res: Response, next: NextFunction): void {
+  const { Todo } = req.app.get('models')
+  Todo.findById(req.params.id)
+    .then((data: TodoAttributes) => {
+      res.json(data)
     })
     .catch((error: Error) => {
       next(error)

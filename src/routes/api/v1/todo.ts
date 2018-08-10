@@ -6,7 +6,7 @@ import {
   create,
   // deleteId,
   getAll,
-  // getId,
+  getId,
   // updateId,
 } from '../../../controllers/todo'
 
@@ -19,7 +19,7 @@ addressRoute
 
 addressRoute
   .route('/:id')
-  // .get(isLoggedIn, getId)
+  .get(getId)
   // .patch(isLoggedIn, updateId)
   // .delete(isLoggedIn, deleteId);
   // .get(getId)
