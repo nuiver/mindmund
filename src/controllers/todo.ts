@@ -35,3 +35,25 @@ export function getId(req: Request, res: Response, next: NextFunction): void {
       next(error)
     })
 }
+
+export function updateId(req: Request, res: Response, next: NextFunction): void {
+  const { Todo } = req.app.get('models')
+  Todo.update(req.body, { returning: true, where: { id: req.params.id } })
+    .then((data: TodoAttributes) => {
+      res.status(200).json(data)
+    })
+    .catch((error: Error) => {
+      next(error)
+    })
+}
+
+export function deleteId(req: Request, res: Response, next: NextFunction): void {
+  const { Todo } = req.app.get('models')
+  Todo.destroy({ returning: true, where: { id: req.params.id } })
+    .then((data: TodoAttributes) => {
+      res.status(200).json(data)
+    })
+    .catch((error: Error) => {
+      next(error)
+    })
+}
