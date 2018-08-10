@@ -3,9 +3,9 @@ import { Router } from 'express'
 const addressRoute = Router()
 
 import {
-  create
+  create,
   // deleteId,
-  // getAll,
+  getAll,
   // getId,
   // updateId,
 } from '../../../controllers/todo'
@@ -14,7 +14,7 @@ addressRoute
   .route('/')
   // .get(isLoggedIn, getAll)
   // .post(isLoggedIn, create);
-  // .get(getAll)
+  .get(getAll)
   .post(create)
 
 addressRoute

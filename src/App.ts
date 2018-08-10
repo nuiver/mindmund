@@ -38,6 +38,7 @@ class App {
     }
     this.app.use(express.static(path.join(__dirname, '../public')))
   }
+
   private middleware(): void {
     this.app.set('models', models)
     // this.app.use(

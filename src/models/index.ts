@@ -13,15 +13,8 @@ const operatorsAliases: Sequelize.OperatorsAliases = {
   $or: Sequelize.Op.or
 }
 
-const define: Sequelize.DefineOptions<any> = {
-  paranoid: true,
-  timestamps: true
-  // underscored: true
-}
-
 const options: Sequelize.Options = {
   // NOTE: http://sequelize.readthedocs.io/en/latest/api/sequelize/index.html
-  define,
   logging: false,
   operatorsAliases
   // dialect: 'postgres'
