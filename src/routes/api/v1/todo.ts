@@ -1,22 +1,22 @@
 import { Router } from 'express'
 
-const addressRoute = Router();
+const addressRoute = Router()
 
 import {
-  create,
+  create
   // deleteId,
   // getAll,
   // getId,
   // updateId,
-} from '../../../controllers/todo';
-
+} from '../../../controllers/todo'
 
 addressRoute
   .route('/')
   // .get(isLoggedIn, getAll)
   // .post(isLoggedIn, create);
   // .get(getAll)
-  .post(create);
+  .post(create)
+
 addressRoute
   .route('/:id')
   // .get(isLoggedIn, getId)
@@ -26,4 +26,4 @@ addressRoute
   // .patch(updateId)
   // .delete(deleteId);
 
-export default addressRoute;
+export default addressRoute

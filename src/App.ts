@@ -1,17 +1,17 @@
 import * as bodyParser from 'body-parser'
 import express, { Application, NextFunction, Request, Response } from 'express'
-import session from 'express-session';
-import validator from 'express-validator';
+import session from 'express-session'
+import validator from 'express-validator'
 import morgan from 'morgan'
-import passport from 'passport';
-import path from 'path';
+import passport from 'passport'
+import path from 'path'
 
 // import * as dotenv from 'dotenv';
 // const env = dotenv.config();
-import './config/passport.js';
+import './config/passport.js'
 
-import * as models from './models';
-import router from './routes/index';
+import * as models from './models'
+import router from './routes/index'
 
 // Creates and configures an ExpressJS web server.
 class App {
@@ -24,22 +24,22 @@ class App {
     this.config()
     this.middleware()
     this.routes()
-    this.errors();
+    this.errors()
   }
 
   // Configure Express middleware.
 
   private config(): void {
-    this.app.set('port', process.env.PORT || 3000);
-    this.app.set('host', process.env.HOST || '127.0.0.1');
-    this.app.set('view engine', 'pug');
+    this.app.set('port', process.env.PORT || 3000)
+    this.app.set('host', process.env.HOST || '127.0.0.1')
+    this.app.set('view engine', 'pug')
     if (process.env.NODE_ENV === 'development') {
-      this.app.set('view options', { debug: true, compileDebug: true });
+      this.app.set('view options', { debug: true, compileDebug: true })
     }
-    this.app.use(express.static(path.join(__dirname, '../public')));
+    this.app.use(express.static(path.join(__dirname, '../public')))
   }
   private middleware(): void {
-    this.app.set('models', models);
+    this.app.set('models', models)
     // this.app.use(
     //   (req: Request, res: Response, next: NextFunction): void => {
     //     res.header('Access-Control-Allow-Origin', '*');
@@ -80,7 +80,7 @@ class App {
 
   // Configure API endpoints.
   private routes(): void {
-    this.app.use(router);
+    this.app.use(router)
   }
 
   private errors(): void {
@@ -89,11 +89,12 @@ class App {
     this.app.use(
       (error: Error, request: Request, res: Response, next: NextFunction): void => {
         if (error) {
-          res.send({ error });
+          res.send({ error })
         } else {
-          return next();
+          return next()
         }
-      });
+      }
+    )
   }
 }
 

@@ -1,17 +1,17 @@
-import { Router } from 'express';
+import { Router } from 'express'
 
-import apiV1 from './api/v1';
+import apiV1 from './api/v1'
 
-const router = Router();
+const router = Router()
 
-router.use('/api/v1', apiV1);
+router.use('/api/v1', apiV1)
 router.use('/home', (req, res, next) => {
-  res.render('splash');
-});
+  res.render('splash')
+})
 
 router.get('*', (req, res, next) => {
-  res.status(404);
-  next(`${req.path} does not exist. See /endpoints`);
-});
+  res.status(404)
+  next(`${req.path} does not exist. See /endpoints`)
+})
 
-export default router;
+export default router

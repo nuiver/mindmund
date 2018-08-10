@@ -20,7 +20,6 @@ switch (env) {
   case 'test_travis':
   case 'development':
     url = `postgres://${user}:${password}@${host}:${port}/${database}`;
-    console.log(url);
     break;
   default:
     url = 'postgres://postgres:postgres@localhost:5432/booking';
