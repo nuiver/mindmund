@@ -43,11 +43,11 @@ export default (sequelize: Sequelize.Sequelize) => {
   }
 
   const Todo = sequelize.define<TodoInstance, TodoAttributes>('Todo', attributes, options)
-  // Todo.associate = models => {
-  //   Todo.hasMany(models.TodoItem, {
-  //     foreignKey: 'todoId',
-  //     as: 'todoItems'
-  //   })
-  // }
+  Todo.associate = models => {
+    Todo.hasMany(models.TodoItem, {
+      foreignKey: 'todoId',
+      as: 'todoItems'
+    })
+  }
   return Todo
 }

@@ -3,6 +3,7 @@ const env = process.env.NODE_ENV || 'development'
 import * as config from '../config/sequelize'
 
 import Todo from './todo'
+import TodoItem from './todoitem'
 
 const operatorsAliases: Sequelize.OperatorsAliases = {
   // NOTE: http://docs.sequelizejs.com/manual/tutorial/querying.html#operators-aliases
@@ -26,7 +27,8 @@ interface Model {
 }
 
 const models: Model = {
-  Todo: Todo(sequelize)
+  Todo: Todo(sequelize),
+  TodoItem: TodoItem(sequelize)
 }
 
 Object.keys(models).forEach(modelKey => {

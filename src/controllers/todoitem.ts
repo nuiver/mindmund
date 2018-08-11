@@ -1,10 +1,10 @@
 import { NextFunction, Request, Response } from 'express'
-import { TodoAttributes } from '../models/todo'
+import { TodoItemAttributes } from '../models/todoitem'
 
 export function getAll(req: Request, res: Response, next: NextFunction): void {
-  const { Todo, TodoItem } = req.app.get('models')
-  Todo.findAll({ include: [{ model: TodoItem, as: 'todoItems' }] })
-    .then((data: TodoAttributes[]) => {
+  const { TodoItem } = req.app.get('models')
+  TodoItem.all()
+    .then((data: TodoItemAttributes[]) => {
       res.status(200).json(data)
     })
     .catch((error: Error) => {
@@ -13,11 +13,11 @@ export function getAll(req: Request, res: Response, next: NextFunction): void {
 }
 
 export function create(req: Request, res: Response, next: NextFunction): void {
-  const { Todo } = req.app.get('models')
-  const todo = new Todo(req.body)
+  const { TodoItem } = req.app.get('models')
+  const todo = new TodoItem(req.body)
   todo
     .save()
-    .then((data: TodoAttributes) => {
+    .then((data: TodoItemAttributes) => {
       res.status(200).json(data)
     })
     .catch((error: Error) => {
@@ -26,16 +26,9 @@ export function create(req: Request, res: Response, next: NextFunction): void {
 }
 
 export function getId(req: Request, res: Response, next: NextFunction): void {
-  const { Todo, TodoItem } = req.app.get('models')
-  Todo.findById(req.params.id, {
-    include: [
-      {
-        model: TodoItem,
-        as: 'todoItems'
-      }
-    ]
-  })
-    .then((data: TodoAttributes) => {
+  const { TodoItem } = req.app.get('models')
+  TodoItem.findById(req.params.id)
+    .then((data: TodoItemAttributes) => {
       res.json(data)
     })
     .catch((error: Error) => {
@@ -44,9 +37,9 @@ export function getId(req: Request, res: Response, next: NextFunction): void {
 }
 
 export function updateId(req: Request, res: Response, next: NextFunction): void {
-  const { Todo } = req.app.get('models')
-  Todo.update(req.body, { returning: true, where: { id: req.params.id } })
-    .then((data: TodoAttributes) => {
+  const { TodoItem } = req.app.get('models')
+  TodoItem.update(req.body, { returning: true, where: { id: req.params.id } })
+    .then((data: TodoItemAttributes) => {
       res.status(200).json(data)
     })
     .catch((error: Error) => {
@@ -55,9 +48,9 @@ export function updateId(req: Request, res: Response, next: NextFunction): void 
 }
 
 export function deleteId(req: Request, res: Response, next: NextFunction): void {
-  const { Todo } = req.app.get('models')
-  Todo.destroy({ returning: true, where: { id: req.params.id } })
-    .then((data: TodoAttributes) => {
+  const { TodoItem } = req.app.get('models')
+  TodoItem.destroy({ returning: true, where: { id: req.params.id } })
+    .then((data: TodoItemAttributes) => {
       res.status(200).json(data)
     })
     .catch((error: Error) => {
