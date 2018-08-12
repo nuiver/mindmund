@@ -1,3 +1,2 @@
 --require ts-node/register
---recursive
-test/**/*.test.ts
+--recursive test/**/*.test.ts

@@ -1,5 +1,4 @@
 import Sequelize from 'sequelize'
-const env = process.env.NODE_ENV || 'development'
 import * as config from '../config/sequelize'
 
 import Todo from './todo'
@@ -20,7 +19,8 @@ const options: Sequelize.Options = {
   operatorsAliases
   // dialect: 'postgres'
 }
-const sequelize: Sequelize.Sequelize = new Sequelize(config.url || process.env.DATABASE_URL, options)
+
+const sequelize: Sequelize.Sequelize = new Sequelize(config[process.env.NODE_ENV].url, options)
 
 interface Model {
   [key: string]: any
