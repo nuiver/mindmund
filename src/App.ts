@@ -27,15 +27,14 @@ class App {
     this.errors()
   }
 
-  // Configure Express middleware.
-
   private config(): void {
-    this.app.set('port', process.env.PORT || 3000)
+    const envPort = process.env.NODE_ENV === 'testing' ? process.env.PORT_TESTING : process.env.PORT
+    this.app.set('port', envPort || 3000)
     this.app.set('host', process.env.HOST || '127.0.0.1')
-    this.app.set('view engine', 'pug')
-    if (process.env.NODE_ENV === 'development') {
-      this.app.set('view options', { debug: true, compileDebug: true })
-    }
+    // this.app.set('view engine', 'pug')
+    // if (process.env.NODE_ENV === 'development') {
+    //   this.app.set('view options', { debug: true, compileDebug: true })
+    // }
     this.app.use(express.static(path.join(__dirname, '../public')))
   }
 
