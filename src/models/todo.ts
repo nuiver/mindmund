@@ -5,6 +5,8 @@ export interface TodoAttributes {
   title?: string
   note?: string
   complete?: boolean
+  deadline?: Date
+  plannedDate?: Date
   createdAt?: Date
   updatedAt?: Date
   areaId?: number
@@ -26,12 +28,16 @@ export default (sequelize: Sequelize.Sequelize) => {
       defaultValue: false,
       type: Sequelize.BOOLEAN
     },
+    deadline: {
+      type: Sequelize.DATE
+    },
+    plannedDate: {
+      type: Sequelize.DATE
+    },
     createdAt: {
-      field: 'createdAt',
       type: Sequelize.DATE
     },
     updatedAt: {
-      field: 'updatedAt',
       type: Sequelize.DATE
     },
     areaId: {

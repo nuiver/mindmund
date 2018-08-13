@@ -1,11 +1,13 @@
 process.env.NODE_ENV = 'testing'
 
 import * as chai from 'chai'
+import chaiDaytime = require('chai-datetime')
 import faker from 'faker'
 import request from 'supertest'
 import app from '../../../src/server'
 
 const expect = chai.expect
+chai.use(chaiDaytime)
 const accept = 'application/json'
 
 import * as models from '../../../src/models'
@@ -14,8 +16,7 @@ import { TodoAttributes } from '../../../src/models/todo'
 const db = models as any
 
 describe('GET /api/v1/todo', () => {
-
-  beforeEach( () => {
+  beforeEach(() => {
     db.Todo.destroy({
       where: {},
       cascade: true,
@@ -46,6 +47,8 @@ describe('POST /api/v1/todo', () => {
     const newTodo: TodoAttributes = {
       title: faker.lorem.sentence(),
       note: faker.lorem.sentences(2),
+      plannedDate: faker.date.future(1),
+      deadline: faker.date.future(2),
       areaId: 99
     }
     request(app)
@@ -61,6 +64,8 @@ describe('POST /api/v1/todo', () => {
         createdId = parseInt(res.body.id, 10)
         expect(res.body.title).to.equal(newTodo.title)
         expect(res.body.note).to.equal(newTodo.note)
+        expect(new Date(res.body.plannedDate)).to.equalDate(new Date(newTodo.plannedDate))
+        expect(new Date(res.body.deadline)).to.equalDate(new Date(newTodo.deadline))
         done()
       })
   })
@@ -71,6 +76,8 @@ describe('PATCH /api/v1/todo', () => {
     const updateTodo: TodoAttributes = {
       title: faker.lorem.sentence(),
       note: faker.lorem.sentences(2),
+      plannedDate: faker.date.future(1),
+      deadline: faker.date.future(2),
       areaId: 99
     }
     request(app)
@@ -85,6 +92,8 @@ describe('PATCH /api/v1/todo', () => {
         expect(res.body[1][0]).to.be.an('object')
         expect(res.body[1][0].title).to.equal(updateTodo.title)
         expect(res.body[1][0].note).to.equal(updateTodo.note)
+        expect(new Date(res.body[1][0].plannedDate)).to.equalDate(new Date(updateTodo.plannedDate))
+        expect(new Date(res.body[1][0].deadline)).to.equalDate(new Date(updateTodo.deadline))
         done()
       })
   })
@@ -93,10 +102,12 @@ describe('PATCH /api/v1/todo', () => {
     const updateTodo: TodoAttributes = {
       title: faker.lorem.sentence(),
       note: faker.lorem.sentences(2),
-      areaId: faker.random.number(5)
+      plannedDate: faker.date.future(1),
+      deadline: faker.date.future(2),
+      areaId: 99
     }
     request(app)
-      .patch(`/api/v1/todo/${createdId + 10}`)
+      .patch(`/api/v1/todo/${createdId + 1000000}`)
       .set('Accept', accept)
       .send(updateTodo)
       .expect(200)
