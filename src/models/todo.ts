@@ -7,6 +7,7 @@ export interface TodoAttributes {
   complete?: boolean
   createdAt?: Date
   updatedAt?: Date
+  areaId?: number
 }
 
 export type TodoInstance = Sequelize.Instance<TodoAttributes> & TodoAttributes
@@ -32,6 +33,10 @@ export default (sequelize: Sequelize.Sequelize) => {
     updatedAt: {
       field: 'updatedAt',
       type: Sequelize.DATE
+    },
+    areaId: {
+      defaultValue: null,
+      type: Sequelize.INTEGER
     }
   }
 
@@ -44,6 +49,10 @@ export default (sequelize: Sequelize.Sequelize) => {
 
   const Todo = sequelize.define<TodoInstance, TodoAttributes>('Todo', attributes, options)
   Todo.associate = models => {
+    Todo.belongsTo(models.Area, {
+      foreignKey: 'areaId',
+      // as: 'areas'
+    })
     Todo.hasMany(models.TodoItem, {
       foreignKey: 'todoId',
       as: 'todoItems'
