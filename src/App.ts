@@ -28,7 +28,7 @@ class App {
   }
 
   private config(): void {
-    const envPort = process.env.NODE_ENV === 'testing' ? process.env.PORT_TESTING : process.env.PORT
+    const envPort = process.env.NODE_ENV === 'testing' ? process.env.PORT_TEST : process.env.PORT
     this.app.set('port', envPort || 3000)
     this.app.set('host', process.env.HOST || '127.0.0.1')
     // this.app.set('view engine', 'pug')

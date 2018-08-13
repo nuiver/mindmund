@@ -8,8 +8,7 @@ import app from '../../../src/server'
 const expect = chai.expect
 const accept = 'application/json'
 
-import * as models from '../../../src/models/'
-import todo, { TodoAttributes } from '../../../src/models/todo'
+import { TodoAttributes } from '../../../src/models/todo'
 
 describe('GET /api/v1/todo', () => {
   it('responds with json array', done => {
