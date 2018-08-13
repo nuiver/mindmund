@@ -58,7 +58,7 @@ export function deleteId(req: Request, res: Response, next: NextFunction): void 
   const { Todo } = req.app.get('models')
   Todo.destroy({ returning: true, where: { id: req.params.id } })
     .then((data: TodoAttributes) => {
-      res.status(200).json(data)
+      res.status(200).send({ message: 'Todo deleted successfully.' })
     })
     .catch((error: Error) => {
       next(error)

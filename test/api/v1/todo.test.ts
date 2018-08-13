@@ -98,20 +98,14 @@ describe('PATCH /api/v1/todo', () => {
 // describe('DELETE /api/v1/todo', () => {
 //   it('deletes the given todo id', done => {
 //     request(app)
-//       .delete(`/api/v1/todos/${createdId}`)
+//       .delete(`/api/v1/todo/${createdId}`)
 //       .set('Accept', accept)
 //       .expect(200)
 //       .end((err, res) => {
 //         if (err) {
 //           return done(err)
 //         }
-//         expect(res.body[0]).to.be.an('object')
-//         expect(res.body[0].name).to.equal(todoUpdate.name)
-//         expect(res.body[0].todocamp).to.equal(todoUpdate.todocamp)
-//         expect(res.body[0].website).to.equal(todoUpdate.website)
-//         expect(res.body[0].label).to.equal(todoUpdate.label)
-//         expect(res.body[0].genreId).to.equal(todoUpdate.genreId)
-//         expect(res.body[0].deleted_at).to.be.a('string')
+//         expect(res.body.message).to.equal('Todo deleted successfully.')
 //         done()
 //       })
 //   })

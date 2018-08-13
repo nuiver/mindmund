@@ -17,7 +17,6 @@ const options: Sequelize.Options = {
   // NOTE: http://sequelize.readthedocs.io/en/latest/api/sequelize/index.html
   logging: false,
   operatorsAliases
-  // dialect: 'postgres'
 }
 
 const sequelize: Sequelize.Sequelize = new Sequelize(config[process.env.NODE_ENV].url, options)
