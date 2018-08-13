@@ -24,17 +24,18 @@
     "dev": "tsc -w | nodemon --watch dist --delay 500ms ./dist/server.js",
     "lint": "tslint --project . --fix -t stylish",
     "release": "standard-version",
-    "test": "nyc --reporter=html --reporter=text mocha --opts ./mocha.opts --require source-map-support/register --exit",
-    "test:watch": "--env.NODE_ENV=testing mocha --opts ./mocha.opts --reporter dot --watch-extensions ts --watch",
+    "test": "npm run db:migrate:test && nyc --reporter=html --reporter=text mocha --opts ./mocha.opts --require source-map-support/register --exit",
+    "test:watch": "mocha --opts ./mocha.opts --reporter dot --watch-extensions ts --watch",
     "test:coverage": "--env.NODE_ENV=testing nyc report --reporter=text-lcov | coveralls",
     "db:DROP": "node_modules/.bin/sequelize db:drop",
     "db:CREATE": "node_modules/.bin/sequelize db:create",
     "db:teardown": "node_modules/.bin/sequelize db:migrate:undo:all",
     "db:migrate": "node_modules/.bin/sequelize db:migrate",
+    "db:migrate:test": "node_modules/.bin/sequelize db:migrate --env='testing'",
     "db:seed": "node_modules/.bin/sequelize db:seed:all",
+    "db:seed:test": " node_modules/.bin/sequelize db:seed:all --env='testing'",
     "db:reset": "npm run db:faker && npm run db:teardown && npm run db:migrate && npm run db:seed",
-    "db:faker": "node db/data/generation/generate-json-data.js",
-    "db:generate-erd": "npm run build && node ./lib/generate-erd.js"
+    "db:faker": "node db/data/generation/generate-json-data.js"g
   },
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",

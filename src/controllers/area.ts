@@ -52,7 +52,7 @@ export function deleteId(req: Request, res: Response, next: NextFunction): void 
   const { Area } = req.app.get('models')
   Area.destroy({ returning: true, where: { id: req.params.id } })
     .then((data: AreaAttributes) => {
-      res.status(200).json(data)
+      res.status(200).send({ message: 'Area deleted successfully.' })
     })
     .catch((error: Error) => {
       next(error)
