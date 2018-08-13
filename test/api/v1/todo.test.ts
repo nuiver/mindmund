@@ -11,7 +11,7 @@ const accept = 'application/json'
 import * as models from '../../../src/models'
 import { TodoAttributes } from '../../../src/models/todo'
 
-const db = models // as any
+const db = models as any
 
 describe('GET /api/v1/todo', () => {
 

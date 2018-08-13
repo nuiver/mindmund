@@ -1,6 +1,7 @@
 import Sequelize from 'sequelize'
 import * as config from '../config/sequelize'
 
+import Area from './area'
 import Todo from './todo'
 import TodoItem from './todoitem'
 
@@ -16,7 +17,8 @@ const operatorsAliases: Sequelize.OperatorsAliases = {
 const options: Sequelize.Options = {
   // NOTE: http://sequelize.readthedocs.io/en/latest/api/sequelize/index.html
   logging: false,
-  operatorsAliases
+  operatorsAliases,
+  dialect: config[process.env.NODE_ENV].dialect
 }
 
 const sequelize: Sequelize.Sequelize = new Sequelize(config[process.env.NODE_ENV].url, options)
@@ -27,7 +29,8 @@ interface Model {
 
 const models: Model = {
   Todo: Todo(sequelize),
-  TodoItem: TodoItem(sequelize)
+  TodoItem: TodoItem(sequelize),
+  Area: Area(sequelize)
 }
 
 Object.keys(models).forEach(modelKey => {

@@ -13,7 +13,7 @@ const databaseTest = process.env.DB_TEST_NAME
 const userTest = process.env.DB_TEST_USER
 const passwordTest = process.env.DB_TEST_PASS
 const hostTest = process.env.DB_TEST_HOST
-const dialect = process.env.DIALECT
+const dialect = 'postgres'
 
 let url
 
@@ -40,7 +40,8 @@ module.exports = {
     database,
     dialect,
     host,
-    port
+    port,
+    url
   },
   production: {
     url
@@ -57,7 +58,5 @@ module.exports = {
     host,
     port,
     url
-  },
-  // NOTE: this is what is used by the app (src/model/index)
-  url
+  }
 }
