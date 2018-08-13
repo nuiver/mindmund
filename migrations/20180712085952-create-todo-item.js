@@ -33,5 +33,5 @@ module.exports = {
         }
       }
     }),
-  down: (queryInterface /* , Sequelize */) => queryInterface.dropTable('TodoItems')
+  down: (queryInterface) => queryInterface.dropTable('TodoItems')
 }
