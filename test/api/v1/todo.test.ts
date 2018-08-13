@@ -8,9 +8,21 @@ import app from '../../../src/server'
 const expect = chai.expect
 const accept = 'application/json'
 
+import * as models from '../../../src/models'
 import { TodoAttributes } from '../../../src/models/todo'
 
+const db = models // as any
+
 describe('GET /api/v1/todo', () => {
+
+  beforeEach( () => {
+    db.Todo.destroy({
+      where: {},
+      cascade: true,
+      truncate: true
+    })
+  })
+
   it('responds with json array', done => {
     request(app)
       .get('/api/v1/todo')
