@@ -59,15 +59,15 @@ class App {
     this.app.use(morgan('dev'))
     this.app.use(bodyParser.json())
     this.app.use(bodyParser.urlencoded({ extended: false }))
-    // this.app.use(
-    //   session({
-    //     resave: true,
-    //     saveUninitialized: true,
-    //     secret: process.env.SESSION_SECRET || 'keyboard cat',
-    //   })
-    // )
-    // this.app.use(passport.initialize());
-    // this.app.use(passport.session());
+    this.app.use(
+      session({
+        resave: true,
+        saveUninitialized: true,
+        secret: process.env.SESSION_SECRET || 'keyboard cat'
+      })
+    )
+    this.app.use(passport.initialize())
+    this.app.use(passport.session())
     // this.app.use(
     //   (req: Request, res: Response, next: NextFunction): void => {
     //     res.locals.session = req.session;

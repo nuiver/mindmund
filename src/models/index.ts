@@ -5,6 +5,7 @@ import Area from './area'
 import Stage from './stage'
 import Todo from './todo'
 import TodoItem from './todoitem'
+import User from './user'
 
 const operatorsAliases: Sequelize.OperatorsAliases = {
   // NOTE: http://docs.sequelizejs.com/manual/tutorial/querying.html#operators-aliases
@@ -32,7 +33,8 @@ const models: Model = {
   Todo: Todo(sequelize),
   TodoItem: TodoItem(sequelize),
   Area: Area(sequelize),
-  Stage: Stage(sequelize)
+  Stage: Stage(sequelize),
+  User: User(sequelize)
 }
 
 Object.keys(models).forEach(modelKey => {
