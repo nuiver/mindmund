@@ -5,10 +5,6 @@
   },
   "rules": {
     "adjacent-overload-signatures": true,
-    "arrow-parens": [
-      "error",
-      "always"
-    ],
     "no-implicit-dependencies": [true, "dev"],
     "no-empty-interface": true,
     "no-unnecessary-type-assertion": true,
