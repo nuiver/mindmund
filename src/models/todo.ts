@@ -59,6 +59,10 @@ export default (sequelize: Sequelize.Sequelize) => {
       foreignKey: 'areaId',
       // as: 'areas'
     })
+    Todo.belongsTo(models.Stage, {
+      foreignKey: 'stageId',
+      // as: 'areas'
+    })
     Todo.hasMany(models.TodoItem, {
       foreignKey: 'todoId',
       as: 'todoItems'

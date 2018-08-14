@@ -49,7 +49,7 @@ describe('POST /api/v1/todo', () => {
       note: faker.lorem.sentences(2),
       plannedDate: faker.date.future(1),
       deadline: faker.date.future(2),
-      areaId: 99
+      areaId: 999999
     }
     request(app)
       .post('/api/v1/todo')
@@ -78,7 +78,7 @@ describe('PATCH /api/v1/todo', () => {
       note: faker.lorem.sentences(2),
       plannedDate: faker.date.future(1),
       deadline: faker.date.future(2),
-      areaId: 99
+      areaId: 999999
     }
     request(app)
       .patch(`/api/v1/todo/${createdId}`)
@@ -104,7 +104,7 @@ describe('PATCH /api/v1/todo', () => {
       note: faker.lorem.sentences(2),
       plannedDate: faker.date.future(1),
       deadline: faker.date.future(2),
-      areaId: 99
+      areaId: 999999
     }
     request(app)
       .patch(`/api/v1/todo/${createdId + 1000000}`)

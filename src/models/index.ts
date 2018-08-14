@@ -2,6 +2,7 @@ import Sequelize from 'sequelize'
 import * as config from '../config/sequelize'
 
 import Area from './area'
+import Stage from './stage'
 import Todo from './todo'
 import TodoItem from './todoitem'
 
@@ -30,7 +31,8 @@ interface Model {
 const models: Model = {
   Todo: Todo(sequelize),
   TodoItem: TodoItem(sequelize),
-  Area: Area(sequelize)
+  Area: Area(sequelize),
+  Stage: Stage(sequelize)
 }
 
 Object.keys(models).forEach(modelKey => {
