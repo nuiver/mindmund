@@ -1,14 +1,14 @@
 'use strict'
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Areas', {
+    return queryInterface.createTable('Stages', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      areaName: {
+      stageName: {
         type: Sequelize.STRING,
         allowNull: false
       },
@@ -22,7 +22,7 @@ module.exports = {
       }
     })
   },
-  down: (queryInterface) => {
-    return queryInterface.dropTable('Areas')
+  down: queryInterface => {
+    return queryInterface.dropTable('Stages')
   }
 }
