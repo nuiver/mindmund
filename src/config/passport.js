@@ -16,7 +16,6 @@ const LocalLoginStrategy = new Strategy(
     };
     User.findOne({ where: { username }})
       .then(user => {
-        console.log(user)
       if (!user) {
         return done(null, false, {
           message: "Can't find a user with those credentials. Please try again"
