@@ -1,4 +1,4 @@
-import app from './app'
+import app from './App'
 
 const server = app.listen(app.get('port'), () => {
   /* tslint:disable-next-line */

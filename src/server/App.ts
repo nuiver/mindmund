@@ -1,7 +1,7 @@
 import * as bodyParser from 'body-parser'
 import express, { Application, NextFunction, Request, Response } from 'express'
 import session from 'express-session'
-import validator from 'express-validator'
+// import validator from 'express-validator'
 import morgan from 'morgan'
 import passport from 'passport'
 import path from 'path'
@@ -16,7 +16,7 @@ import router from './routes/index'
 // Creates and configures an ExpressJS web server.
 class App {
   // ref to Express instance
-  public app: Application
+  app: Application
 
   // Run configuration methods on the Express instance.
   constructor() {

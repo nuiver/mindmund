@@ -2,12 +2,11 @@ process.env.NODE_ENV = 'testing'
 
 import * as chai from 'chai'
 import request from 'supertest'
-import app from '../../../src/server'
+import app from '../../../src/server/server'
 
 const expect = chai.expect
 
 describe('GET /api/v1/stage', () => {
-
   it('responds with json array', done => {
     request(app)
       .get('/api/v1/stage')
@@ -37,5 +36,4 @@ describe('GET /api/v1/stage', () => {
         done()
       })
   })
-
 })

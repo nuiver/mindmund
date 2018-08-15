@@ -3,18 +3,14 @@ process.env.NODE_ENV = 'testing'
 import * as chai from 'chai'
 import faker from 'faker'
 import request from 'supertest'
-import app from '../../../src/server'
+import app from '../../../src/server/server'
 
 const expect = chai.expect
 const accept = 'application/json'
 
-import * as models from '../../../src/models'
-import { AreaAttributes } from '../../../src/models/area'
-
-const db = models as any
+import { AreaAttributes } from '../../../src/server/models/area'
 
 describe('GET /api/v1/area', () => {
-
   it('responds with json array', done => {
     request(app)
       .get('/api/v1/area')

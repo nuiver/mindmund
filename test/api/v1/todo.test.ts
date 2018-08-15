@@ -4,14 +4,14 @@ import * as chai from 'chai'
 import chaiDaytime = require('chai-datetime')
 import faker from 'faker'
 import request from 'supertest'
-import app from '../../../src/server'
+import app from '../../../src/server/server'
 
 const expect = chai.expect
 chai.use(chaiDaytime)
 const accept = 'application/json'
 
-import * as models from '../../../src/models'
-import { TodoAttributes } from '../../../src/models/todo'
+import * as models from '../../../src/server/models'
+import { TodoAttributes } from '../../../src/server/models/todo'
 
 const db = models as any
 

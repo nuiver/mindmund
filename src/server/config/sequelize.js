@@ -34,9 +34,9 @@ module.exports = {
     database: databaseTest,
     dialect,
     host: hostTest,
+    password: passwordTest,
     port: portTest,
     url: urlTesting,
     username: userTest,
-    password: passwordTest
   }
 }
