@@ -8,10 +8,7 @@ import app from '../../../src/server/server'
 const expect = chai.expect
 const accept = 'application/json'
 
-import * as models from '../../../src/server/models'
 import { AreaAttributes } from '../../../src/server/models/area'
-
-const db = models as any
 
 describe('GET /api/v1/area', () => {
   it('responds with json array', done => {

@@ -8,7 +8,7 @@ import app from '../../../src/server/server'
 const expect = chai.expect
 const accept = 'application/json'
 
-import { UserAttributes } from '../../../src/server/models/user'
+// import { UserAttributes } from '../../../src/server/models/user'
 
 describe('User authentication', () => {
   const testUser = {
@@ -26,7 +26,7 @@ describe('User authentication', () => {
   }
 
   let testUserLocation: string
-  let testUserId: number
+  // let testUserId: number
 
   it('registers a new user', done => {
     request(app)
@@ -54,7 +54,7 @@ describe('User authentication', () => {
         if (err) {
           return done(err)
         }
-        testUserId = parseInt(res.body.id, 10)
+        // testUserId = parseInt(res.body.id, 10)
         expect(res.body.username).to.equal(testUser.username)
         // tslint:disable no-unused-expression
         expect(res.body.password).to.not.exist

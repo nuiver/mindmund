@@ -56,7 +56,7 @@ class App {
     //     next();
     //   }
     // );
-    this.app.use(morgan('combined'))
+    this.app.use(morgan('dev'))
     this.app.use(bodyParser.json())
     this.app.use(bodyParser.urlencoded({ extended: false }))
     this.app.use(
