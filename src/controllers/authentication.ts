@@ -34,7 +34,7 @@ export function register(req: Request, res: Response, next: NextFunction): void 
 
 export function login(req: Request, res: Response, next: NextFunction): void {
   // TODO: refactor to helper with strategy arg
-  passport.authenticate('local-signIn', (err, user, msgObj) => {
+  passport.authenticate('local-signIn', (err, user) => {
     if (err) {
       return next(err)
     }

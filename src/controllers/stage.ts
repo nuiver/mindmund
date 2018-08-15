@@ -8,7 +8,6 @@ export function getAll(req: Request, res: Response, next: NextFunction): void {
       res.status(200).json(data)
     })
     .catch((error: Error) => {
-      console.log(error)
       next(error)
     })
 }

@@ -27,7 +27,7 @@ describe('GET /api/v1/todo', () => {
   it('responds with json array', done => {
     request(app)
       .get('/api/v1/todo')
-      .set('Accept', 'application/json')
+      .set('Accept', accept)
       .expect('Content-Type', /json/)
       .expect(200)
       .end((err, res) => {
