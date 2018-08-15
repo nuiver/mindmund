@@ -3,12 +3,12 @@ process.env.NODE_ENV = 'testing'
 import * as chai from 'chai'
 import faker from 'faker'
 import request from 'supertest'
-import app from '../../../src/server'
+import app from '../../../src/server/server'
 
 const expect = chai.expect
 const accept = 'application/json'
 
-import { UserAttributes } from '../../../src/models/user'
+import { UserAttributes } from '../../../src/server/models/user'
 
 describe('User authentication', () => {
   const testUser = {
