@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from 'express'
 import { StageAttributes } from '../models/stage'
 
 export function getAll(req: Request, res: Response, next: NextFunction): void {
-  const { Stage, Todo, TodoItem } = req.app.get('models')
+  const { Stage, Todo } = req.app.get('models')
   Stage.findAll({ include: [{ model: Todo, as: 'todos'}] })
     .then((data: StageAttributes[]) => {
       res.status(200).json(data)

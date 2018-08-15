@@ -51,11 +51,11 @@ const RegistrationStrategy = new Strategy(
       } else {
         const userPassword = generateHash(password)
         const data = {
-          username,
-          password: userPassword,
+          email: req.body.email,
           firstName: req.body.firstName,
           lastName: req.body.lastName,
-          email: req.body.email
+          password: userPassword,
+          username,
         }
         User.create(data).then(newUser => {
           if (!newUser) {

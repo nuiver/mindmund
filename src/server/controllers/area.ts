@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from 'express'
 import { AreaAttributes } from '../models/area'
 
 export function getAll(req: Request, res: Response, next: NextFunction): void {
-  const { Area, Todo, TodoItem } = req.app.get('models')
+  const { Area, Todo } = req.app.get('models')
   Area.findAll({ include: [{ model: Todo, as: 'todos'}] })
     .then((data: AreaAttributes[]) => {
       res.status(200).json(data)
