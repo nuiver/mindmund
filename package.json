@@ -19,7 +19,7 @@
   "scripts": {
     "postinstall": "npm run server:build",
     "prestart": "npm run server:build",
-    "start": "concurrently --kill-others-on-fail \"yarn server\" \"PORT=5000 yarn react:start\"",
+    "start": "concurrently --kill-others-on-fail -n \"express,react\" \"yarn server\" \"PORT=5000 yarn react:start\"",
     "server": "node ./dist/server/server.js",
     "server:build": "tsc",
     "server:test": "NODE_ENV=testing node ./dist/server/server.js",
@@ -27,7 +27,8 @@
     "react:build": "react-scripts-ts build",
     "react:test": "react-scripts-ts test --env=jsdom",
     "react:eject": "react-scripts-ts eject",
-    "dev": "tsc -w | nodemon --watch dist --delay 500ms ./dist/server/server.js",
+    "dev": "concurrently --kill-others-on-fail -n \"express,react\" \"yarn dev:server\" \"PORT=5000 yarn react:start\"",
+    "dev:server": "nodemon --watch dist --delay 500ms ./dist/server/server.js",
     "lint": "tslint --project . --fix -t stylish",
     "release": "standard-version",
     "test": "npm run db:migrate:testing && nyc --reporter=html --reporter=text mocha --opts ./mocha.opts --require source-map-support/register --exit",
