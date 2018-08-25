@@ -1,10 +1,11 @@
 import * as React from 'react'
+import { TodoProps } from './components/Todo'
 
 export interface AppContextInterface {
-  todos: any
+  todos: TodoProps[]
 }
 
-const ctxt = React.createContext<AppContextInterface | null>(null)
+const ctxt = React.createContext<AppContextInterface | null >(null)
 
 export const AppContextProvider = ctxt.Provider
 

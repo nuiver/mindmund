@@ -1,25 +1,31 @@
 import * as React from 'react'
-import './App.css'
+import styled from 'styled-components'
 import { AppContextProvider } from './AppContext'
+import { TodoProps } from './components/Todo'
 
 import Todos from './components/Todos'
-import logo from './logo.svg'
 
-// const TodoContext: AppContextInterface = {
-//   name: 'Using React Context in a Typescript App',
-//   author: 'thehappybug',
-//   url: 'http://www.example.com'
-// }
+const StyledWrapper = styled.div`
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+`
 
-class App extends React.Component {
-  state = {
-    todos: ['this','that']
+interface AppState {
+  todos: TodoProps[]
+  }
+
+class App extends React.Component<{}, AppState> {
+
+  constructor(props: any){
+      super(props);
+      this.state = {todos: []}
   }
 
   componentDidMount() {
     this.callApi()
       .then(res => {
-        const arr:any[] = Object.keys(res).map( (i) => {
+        const arr: TodoProps[] = Object.keys(res).map( (i) => {
           return res[i];
         });
         this.setState({ todos: arr })
@@ -39,14 +45,9 @@ class App extends React.Component {
   render() {
     return (
       <AppContextProvider value={this.state}>
-        <div className="App">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <h1 className="App-title">Welcome to React</h1>
-          </header>
-          {/* <h1>{console.log(this.state.users) as any}</h1> */}
+        <StyledWrapper className="App">
           <Todos />
-        </div>
+        </StyledWrapper>
       </AppContextProvider>
     )
   }

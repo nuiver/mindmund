@@ -1,14 +1,13 @@
 import * as React from 'react'
 import { AppContextConsumer } from '../AppContext'
+import { TodoProps } from './Todo'
 import Todo from './Todo'
 
-const Todos = () => (
+const Todos: React.SFC = () => (
   <AppContextConsumer>
-    {appContext =>
-       (
-        appContext.todos.map((todo: any) => <Todo todo={todo} key={todo.id} id={todo.id} />)
-      )
-    }
+    {appContext => {
+      return appContext.todos.map((todo: TodoProps) => <Todo {...todo} key={todo.id} id={todo.id} />)
+    }}
   </AppContextConsumer>
 )
 
