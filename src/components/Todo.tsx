@@ -1,6 +1,6 @@
 import * as React from 'react'
 import styled from 'styled-components'
-// import Checkbox from '../elements/checkbox'
+import Checkbox from '../elements/checkbox'
 
 const Wrapper = styled.div`
   background: #f4f2f2;
@@ -28,8 +28,10 @@ export interface TodoProps {
 
 const Todo: React.SFC<TodoProps> = props => (
   <Wrapper>
-    {console.log(props)}
-    {/* <Checkbox label={props.complete} handleCheckboxChange={toggleCheckbox} key={props.todo.id} /> */}
+    <Checkbox
+      complete={props.complete}
+      key={`${props.id}-todo`}
+    />
     <p>{props.complete ? 'yes' : 'no'}</p>
     <TodoP>{props.title}</TodoP>
     <p>{props.note}</p>
