@@ -6,7 +6,7 @@ import Todo from './Todo'
 const Todos: React.SFC = () => (
   <AppContextConsumer>
     {appContext => {
-      return appContext.todos.map((todo: TodoProps) => <Todo {...todo} key={todo.id} id={todo.id} />)
+      return appContext.todos.map((todo: TodoProps) => <Todo {...todo} key={`${todo.id}-todo`}/>)
     }}
   </AppContextConsumer>
 )
