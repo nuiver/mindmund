@@ -6,7 +6,7 @@ import app from '../../../src/server/server'
 
 const expect = chai.expect
 
-describe('GET /api/v1/stage', () => {
+describe('*** GET /api/v1/stage', () => {
   it('responds with json array', done => {
     request(app)
       .get('/api/v1/stage')

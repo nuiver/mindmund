@@ -1,4 +1,5 @@
 import * as bodyParser from 'body-parser'
+import cors from 'cors'
 import express, { Application, NextFunction, Request, Response } from 'express'
 import session from 'express-session'
 // import validator from 'express-validator'
@@ -56,6 +57,18 @@ class App {
     //     next();
     //   }
     // );
+    // this.app.use((req: Request, res: Response, next: NextFunction): void | Response => {
+    //   if (req.headers.origin) {
+    //     res.header('Access-Control-Allow-Origin', '*')
+    //     res.header('Access-Control-Allow-Headers', 'X-Requested-With,Content-Type,Authorization')
+    //     res.header('Access-Control-Allow-Methods', 'GET,PUT,PATCH,POST,DELETE')
+    //     if (req.method === 'OPTIONS') {
+    //       return res.send(200)
+    //     }
+    //   }
+    //   next()
+    // })
+    this.app.use(cors())
     this.app.use(morgan('dev'))
     this.app.use(bodyParser.json())
     this.app.use(bodyParser.urlencoded({ extended: false }))

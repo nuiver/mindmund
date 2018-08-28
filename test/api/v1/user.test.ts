@@ -10,7 +10,7 @@ const accept = 'application/json'
 
 // import { UserAttributes } from '../../../src/server/models/user'
 
-describe('User authentication', () => {
+describe('*** User authentication', () => {
   const testUser = {
     firstName: faker.name.firstName(),
     lastName: faker.name.lastName(),

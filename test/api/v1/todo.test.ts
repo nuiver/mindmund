@@ -15,7 +15,7 @@ import { TodoAttributes } from '../../../src/server/models/todo'
 
 const db = models as any
 
-describe('GET /api/v1/todo', () => {
+describe('*** GET /api/v1/todo', () => {
   beforeEach(() => {
     db.Todo.destroy({
       where: {},
@@ -42,7 +42,7 @@ describe('GET /api/v1/todo', () => {
 
 let createdId: number
 
-describe('POST /api/v1/todo', () => {
+describe('*** POST /api/v1/todo', () => {
   it('responds with created todo', done => {
     const newTodo: TodoAttributes = {
       title: faker.lorem.sentence(),
@@ -71,7 +71,7 @@ describe('POST /api/v1/todo', () => {
   })
 })
 
-describe('PATCH /api/v1/todo', () => {
+describe('*** PATCH /api/v1/todo', () => {
   it('updates the given todo id', done => {
     const updateTodo: TodoAttributes = {
       title: faker.lorem.sentence(),
@@ -121,7 +121,7 @@ describe('PATCH /api/v1/todo', () => {
   })
 })
 
-describe('DELETE /api/v1/todo', () => {
+describe('*** DELETE /api/v1/todo', () => {
   it('deletes the given todo id', done => {
     request(app)
       .delete(`/api/v1/todo/${createdId}`)

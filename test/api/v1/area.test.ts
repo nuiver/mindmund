@@ -1,6 +1,6 @@
 process.env.NODE_ENV = 'testing'
 
-import * as chai from 'chai'
+import chai from 'chai'
 import faker from 'faker'
 import request from 'supertest'
 import app from '../../../src/server/server'
@@ -10,7 +10,7 @@ const accept = 'application/json'
 
 import { AreaAttributes } from '../../../src/server/models/area'
 
-describe('GET /api/v1/area', () => {
+describe('*** GET /api/v1/area', () => {
   it('responds with json array', done => {
     request(app)
       .get('/api/v1/area')
@@ -29,7 +29,7 @@ describe('GET /api/v1/area', () => {
 
 let createdId: number
 
-describe('POST /api/v1/area', () => {
+describe('*** POST /api/v1/area', () => {
   it('responds with created area', done => {
     const newArea: AreaAttributes = {
       areaName: faker.lorem.sentence()
@@ -51,7 +51,7 @@ describe('POST /api/v1/area', () => {
   })
 })
 
-describe('PATCH /api/v1/area', () => {
+describe('*** PATCH /api/v1/area', () => {
   it('updates the given area id', done => {
     const updateArea: AreaAttributes = {
       areaName: faker.lorem.sentence()
@@ -90,7 +90,7 @@ describe('PATCH /api/v1/area', () => {
   })
 })
 
-describe('DELETE /api/v1/area', () => {
+describe('*** DELETE /api/v1/area', () => {
   it('deletes the given area id', done => {
     request(app)
       .delete(`/api/v1/area/${createdId}`)
