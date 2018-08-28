@@ -110,7 +110,9 @@ class Todo extends React.Component<TodoProps, TodoState> {
     const postBody = JSON.stringify({
       complete
     })
-    const response = await fetch(`/api/v1/todo/${id}`, {
+    const envPort = process.env.NODE_ENV === 'testing' ? process.env.REACT_APP_PORT_TEST : process.env.REACT_APP_PORT
+    const url = `http://localhost:${envPort}/api/v1/todo/${id}`
+    const response = await fetch(url, {
       method: 'PATCH',
       body: postBody,
       headers: {
