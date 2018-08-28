@@ -1,8 +1,8 @@
 import * as React from 'react'
-import { TodoProps } from './components/Todo'
+import { TodoFullProps } from './components/Todo'
 
 export interface AppContextInterface {
-  todos: TodoProps[]
+  todos: TodoFullProps[]
 }
 
 const ctxt = React.createContext<AppContextInterface | null >(null)

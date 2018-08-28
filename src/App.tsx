@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from 'styled-components'
 import { AppContextProvider } from './AppContext'
-import { TodoProps } from './components/Todo'
+import { TodoFullProps } from './components/Todo'
 
 import Todos from './components/Todos'
 
@@ -12,7 +12,7 @@ const StyledWrapper = styled.div`
 `
 
 interface AppState {
-  todos: TodoProps[]
+  todos: TodoFullProps[]
   }
 
 class App extends React.Component<{}, AppState> {
@@ -25,7 +25,7 @@ class App extends React.Component<{}, AppState> {
   componentDidMount() {
     this.callApi()
       .then(res => {
-        const arr: TodoProps[] = Object.keys(res).map( (i) => {
+        const arr: TodoFullProps[] = Object.keys(res).map( (i) => {
           return res[i];
         });
         this.setState({ todos: arr })
